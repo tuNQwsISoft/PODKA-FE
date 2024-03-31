@@ -1,0 +1,17 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .podcast-item {
+        width: auto !important;
+    }
+}
+
+@layer utilities {
+    .grid-scroll {
+        display: grid;
+        grid-template-rows: 1;
+        grid-template-columns: 13rem 13rem 13rem 13rem;
+        overflow: scroll;
+    }
+}
