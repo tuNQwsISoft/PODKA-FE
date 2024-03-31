@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "title": "Podcast 1",
+    "channel": "tunqws",
+    "likes": 1,
+    "thumbnailSrc": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz11dZWlpNuX0pRGqi74aAaKQmG0bw3wokBWsPCsVGBA&s"
+  },
+  {
+    "id": 2,
+    "title": "Podcast 2",
+    "channel": "tunqws",
+    "likes": 1,
+    "thumbnailSrc": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz11dZWlpNuX0pRGqi74aAaKQmG0bw3wokBWsPCsVGBA&s"
+  },
+  {
+    "id": 6,
+    "title": "Podcast 2",
+    "channel": "tunqws",
+    "likes": 1,
+    "thumbnailSrc": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz11dZWlpNuX0pRGqi74aAaKQmG0bw3wokBWsPCsVGBA&s"
+  },
+  {
+    "id": 3,
+    "title": "Podcast 2",
+    "channel": "tunqws",
+    "likes": 1,
+    "thumbnailSrc": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz11dZWlpNuX0pRGqi74aAaKQmG0bw3wokBWsPCsVGBA&s"
+  },
+  {
+    "id": 4,
+    "title": "Podcast 2",
+    "channel": "tunqws",
+    "likes": 1,
+    "thumbnailSrc": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz11dZWlpNuX0pRGqi74aAaKQmG0bw3wokBWsPCsVGBA&s"
+  },
+  {
+    "id": 5,
+    "title": "Podcast 2",
+    "channel": "tunqws",
+    "likes": 1,
+    "thumbnailSrc": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz11dZWlpNuX0pRGqi74aAaKQmG0bw3wokBWsPCsVGBA&s"
+  },
+  {
+    "id": 8,
+    "title": "Podcast 2",
+    "channel": "tunqws",
+    "likes": 1,
+    "thumbnailSrc": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz11dZWlpNuX0pRGqi74aAaKQmG0bw3wokBWsPCsVGBA&s"
+  },
+  {
+    "id": 9,
+    "title": "Podcast 2",
+    "channel": "tunqws",
+    "likes": 1,
+    "thumbnailSrc": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz11dZWlpNuX0pRGqi74aAaKQmG0bw3wokBWsPCsVGBA&s"
+  }
+]
