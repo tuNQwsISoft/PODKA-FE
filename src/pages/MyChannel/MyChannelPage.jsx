@@ -3,6 +3,7 @@ import './styles.css';
 import playLists from './playList.json';
 import ListVerticalComponent from '../../components/ListPodcast/Vertical/ListVerticalComponent';
 import { IconPlus } from '../../icons';
+import BannerComponent from './_component/BannerComponent';
 
 const MyChannelPage = () => {
     return (
@@ -21,7 +22,9 @@ const MyChannelPage = () => {
                 <div className="divider" />
                 <ListVerticalComponent listItems={playLists} />
             </div>
-            <div className="container-gray col-span-2"></div>
+            <div className="container-gray col-span-2">
+                <BannerComponent />
+            </div>
             <div className="container-gray"></div>
             <div className="container-gray row-span-2"></div>
             <div className="container-gray"></div>
