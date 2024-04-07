@@ -1,5 +1,5 @@
 import React from 'react';
-import PodcastItemComponent from './PodcastItemComponent';
+import PodcastItemComponent from './_component/PodcastItemComponent';
 import './styles.css';
 
 const SectionComponent = ({ title, podcastList }) => {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IconPauseCircle } from '../../../icons';
+import { IconPauseCircle } from '../../../../icons';
 
 const ItemVerticalComponent = ({
     item = {

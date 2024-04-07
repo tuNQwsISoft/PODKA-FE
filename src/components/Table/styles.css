@@ -1,0 +1,95 @@
+@tailwind components;
+
+@layer components {
+    .table-container {
+        @apply isolate flex h-full flex-col gap-y-[0.25rem] overflow-hidden text-small;
+    }
+
+    .table-wrapper {
+        @apply max-h-[75vh] overflow-auto;
+    }
+
+    .table {
+        @apply sticky -top-1 -mt-1 w-full border-separate border-spacing-y-[0.25rem];
+    }
+
+    .table-header {
+        @apply sticky top-0 z-10;
+    }
+
+    .table-header-row {
+        background-image: linear-gradient(
+            90deg,
+            #3a77aa 29.57%,
+            #358cd4 85.88%
+        );
+    }
+
+    .table-header-cell {
+        @apply p-[0.5rem];
+    }
+
+    .table-header-toggle {
+        box-shadow: -0.125rem 0 6px rgba(0, 0, 0, 0.15);
+        @apply sticky right-0 z-10 bg-[#358cd4];
+    }
+    .table-body-row:nth-child(even) {
+        background-color: rgba(72, 143, 214, 0.2);
+    }
+
+    .table-body-row:nth-child(odd) {
+        background-color: rgba(72, 143, 214, 0.1);
+    }
+
+    .table-body-cell {
+        @apply overflow-hidden text-nowrap p-[0.5rem];
+    }
+    .table-body-cell:has(.cell-fit-content) {
+        @apply w-0 min-w-fit;
+    }
+    .table-body-cell .auto-complete-data-block {
+        min-width: unset;
+    }
+    .table-body-cell .auto-complete-input-group {
+        @apply px-2 py-[0.1875rem];
+    }
+
+    .table-select-columns.select-multiple {
+        box-shadow: none;
+    }
+
+    .pagination-container {
+        position: relative;
+    }
+
+    .custom-pagination .ant-pagination-options {
+        display: none;
+    }
+
+    .custom-pagination .ant-pagination-item {
+        background-color: #37385d;
+        border: none;
+        color: white;
+    }
+
+    .custom-pagination .ant-pagination-item a {
+        color: white;
+    }
+
+    .custom-pagination .ant-pagination-item-active {
+        background-image: var(--primary-highlight);
+        border: none;
+        color: white;
+    }
+
+    .custom-pagination .ant-pagination-item-active a {
+        color: white;
+    }
+
+    .custom-pagination .ant-pagination-item-link span {
+        color: white !important;
+    }
+    .cell-select .select-single-toggle {
+        @apply py-0.5;
+    }
+}

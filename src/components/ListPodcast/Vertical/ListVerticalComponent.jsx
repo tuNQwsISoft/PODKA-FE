@@ -1,5 +1,5 @@
 import React from 'react';
-import ItemVerticalComponent from './ItemVerticalComponent';
+import ItemVerticalComponent from './_component/ItemVerticalComponent';
 
 const ListVerticalComponent = ({ listItems }) => {
     return (
