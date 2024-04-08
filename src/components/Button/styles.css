@@ -1,0 +1,60 @@
+@tailwind components;
+
+@layer components {
+    .button {
+        outline: none;
+        border: none;
+        display: inline-flex;
+        gap: 0.25rem;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.75em 1em;
+        border-radius: 0.25em;
+        cursor: pointer;
+        transition: scale 100ms ease-in-out;
+    }
+
+    .button:active {
+        scale: 0.95;
+    }
+
+    .button:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .button.button.button:disabled {
+        cursor: default;
+        pointer-events: none;
+        background: rgba(255, 255, 255, 0.5);
+    }
+
+    .button.outlined {
+        background: none;
+    }
+
+    .button.bordered {
+        --border-width: 0.15em;
+        padding: calc(0.75em - var(--border-width))
+            calc(1em - var(--border-width));
+        border: var(--border-width) solid transparent;
+        position: relative;
+    }
+
+    .button.bordered::after {
+        content: "";
+        position: absolute;
+        inset: calc(-1 * var(--border-width));
+        border-radius: inherit;
+        border: inherit;
+        background: var(--border-color) border-box;
+        mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+        -webkit-mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+
+        mask-composite: exclude;
+        -webkit-mask-composite: xor;
+    }
+}

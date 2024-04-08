@@ -5,13 +5,16 @@ import './assets/css/components.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AuthContextProvider from './contexts/AuthContext/AuthContext';
+import GlobalContextProvider from './contexts/Global/GlobalContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
-        <AuthContextProvider>
-            <App />
-        </AuthContextProvider>
+        <GlobalContextProvider>
+            <AuthContextProvider>
+                <App />
+            </AuthContextProvider>
+        </GlobalContextProvider>
     </React.StrictMode>
 );
 

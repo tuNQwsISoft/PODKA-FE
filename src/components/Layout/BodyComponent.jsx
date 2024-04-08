@@ -1,5 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import PopupComponent from '../Popup/PopupComponent';
+import PopupFormComponent from '../Popup/PopupFormComponent';
 // import PopupComponent from "../Popup/PopupComponent";
 // import LoaderComponent from "../Loader/LoaderComponent";
 // import { parseNotNullNumber } from "../../utils/NumberUtils";
@@ -30,7 +32,8 @@ const BodyComponent = () => {
     return (
         <main className="hidden-container flex-1 bg-quater-black p-2.5 shadow-2x2 flex overflow-scroll">
             <Outlet />
-            {/* <PopupComponent /> */}
+            <PopupComponent />
+            <PopupFormComponent />
         </main>
     );
 };

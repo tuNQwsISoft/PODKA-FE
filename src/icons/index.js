@@ -6,3 +6,7 @@ export { ReactComponent as IconPauseCircle } from './icon-pause-circle.svg';
 export { ReactComponent as IconPlus } from './icon-plus.svg';
 export { ReactComponent as IconMyPlaylist } from './icon-my-playlist.svg';
 export { ReactComponent as IconPlay } from './icon-play.svg';
+export { ReactComponent as IconClose } from './icon-close.svg';
+export { ReactComponent as IconDangerous } from './icon-dangerous.svg';
+export { ReactComponent as IconInfo } from './icon-info.svg';
+export { ReactComponent as IconWarning } from './icon-warning.svg';

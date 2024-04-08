@@ -6,6 +6,8 @@ const PRO_ENDPOINT = 'https://api-prpo-dev.i-soft.com.vn/api/v1';
 export const PRPO_SERVICE_URL =
     process.env.NODE_ENV === 'production' ? PRO_ENDPOINT : DEV_ENDPOINT;
 
+export const PODKA_SERVICE_URL = 'http://localhost:8000/api';
+
 export const ResponseStatus = {
     success: 'Success',
     error: 'Error',
@@ -53,3 +55,8 @@ export const Menu = [
         icon: <IconAlign width="2rem" height="2rem" fill="#F0F0F0" />,
     },
 ];
+
+export const popupTarget = {
+    createPodcastForm: 'create-podcast-form',
+    common: 'common',
+};
