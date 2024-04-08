@@ -1,8 +1,8 @@
 import axios from 'axios';
-import { PRPO_SERVICE_URL } from '../constants';
+import { PODKA_SERVICE_URL, PRPO_SERVICE_URL } from '../constants';
 
 export const AxiosPrivateInstance = axios.create({
-    baseURL: PRPO_SERVICE_URL,
+    baseURL: PODKA_SERVICE_URL,
     // withCredentials: true,
 });
 

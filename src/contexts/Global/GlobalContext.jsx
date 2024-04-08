@@ -1,6 +1,7 @@
-import React, { createContext, useReducer } from "react";
-import GlobalReducer from "./GlobalReducer";
-import { GlobalLoadingEnd, GlobalLoadingStart } from "./GlobalAction";
+import React, { createContext, useReducer } from 'react';
+import GlobalReducer from './GlobalReducer';
+import { GlobalLoadingEnd, GlobalLoadingStart } from './GlobalAction';
+import { popupTarget } from '../../constants';
 
 /**
  * @typedef {{
@@ -41,16 +42,17 @@ const INIT_STATE = {
     fetchAPI: async () => {},
     dispatch: () => {},
     popup: {
-        type: "",
-        header: "",
-        confirmMessage: "",
-        message: "",
+        type: '',
+        header: '',
+        confirmMessage: '',
+        message: '',
         show: false,
+        target: popupTarget.common,
         onCancel: () => {},
         onConfirm: () => {},
     },
     toastList: [],
-    paths: [{ title: "Home", path: "/home", level: 1 }],
+    paths: [{ title: 'Home', path: '/home', level: 1 }],
     masterData: {},
 };
 

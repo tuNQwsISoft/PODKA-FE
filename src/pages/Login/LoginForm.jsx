@@ -4,7 +4,6 @@ import useFetch from '../../hooks/useFetch';
 import AuthenService from '../../services/auth.service';
 import { GlobalContext } from '../../contexts/Global/GlobalContext';
 import {
-    GlobalAddToast,
     GlobalLoadingEnd,
     GlobalLoadingStart,
 } from '../../contexts/Global/GlobalAction';
