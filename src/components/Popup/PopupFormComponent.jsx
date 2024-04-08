@@ -33,7 +33,7 @@ const PopupFormComponent = () => {
                 })
             );
             console.log(result);
-            if (result === true) {
+            if (result) {
                 dispatch(
                     GlobalSetPopup({
                         type: 'info',

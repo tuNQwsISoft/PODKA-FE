@@ -10,10 +10,9 @@ export default class PodcastService {
                 body
             );
             const data = await response.data;
-            if (data.status === ResponseStatus.success) return data.data;
-            throw new Error(data.message);
+            return data;
         } catch (error) {
-            return null;
+            throw new Error(error);
         }
     }
 }
