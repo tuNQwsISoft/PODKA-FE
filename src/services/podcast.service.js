@@ -15,4 +15,15 @@ export default class PodcastService {
             throw new Error(error);
         }
     }
+
+    static async getListPodcast() {
+        try {
+            const response =
+                await AxiosPrivateInstance.get(`/get-all-post-cast`);
+            const data = await response.data;
+            return data;
+        } catch (error) {
+            throw new Error(error);
+        }
+    }
 }
