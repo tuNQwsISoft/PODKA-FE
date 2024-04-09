@@ -4,7 +4,7 @@ import './styles.css';
 
 const SectionComponent = ({ title, podcastList }) => {
     return (
-        <div className="section-component px-32 pt-12">
+        <div className="section-component pt-12 w-full">
             <span className="section-item text-3xl">{title}</span>
             <div className="h-0.5 w-full bg-slate-400" />
 
