@@ -1,0 +1,70 @@
+.disk-wrapper {
+    clip-path: circle(50%);
+}
+
+@-moz-keyframes spin {
+    from {
+        -moz-transform: rotate(0deg);
+    }
+    to {
+        -moz-transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.disk-wrapper.active {
+    -webkit-animation: spin 10s infinite linear;
+}
+
+input[type='range'] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+}
+
+input[type='range']::-webkit-slider-thumb {
+    width: 0.5rem;
+}
+
+input[title='volume-range'] {
+    width: 6rem;
+    height: 0.25rem;
+    border-radius: 1rem;
+}
+
+/* .controls-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+} */
+
+input[title='audio-timespan'] {
+    height: 0.25rem;
+    border-radius: 1rem;
+    width: 100%;
+    --range-progress: 0;
+    background: linear-gradient(
+        to right,
+        #ffffff var(--range-progress),
+        #5a5a5a var(--range-progress)
+    );
+}
+
+/* input[title='audio-timespan']::before {
+    background: #ffffff;
+    width: var(--range-progress);
+} */
