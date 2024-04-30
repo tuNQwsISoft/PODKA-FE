@@ -15,3 +15,4 @@ export { ReactComponent as IconPlayBack } from './icon-play-back.svg';
 export { ReactComponent as IconPlayForward } from './icon-play-forward.svg';
 export { ReactComponent as IconWaves } from './icon-waves.svg';
 export { ReactComponent as IconVolume } from './icon-volume.svg';
+export { ReactComponent as IconThumbUp } from './icon-thumb-up.svg';

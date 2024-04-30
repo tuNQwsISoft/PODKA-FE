@@ -3,6 +3,7 @@ import MenuComponent from './MenuComponent';
 import groupClass from '../../utils/ClassNameUtil';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import { AuthLogout } from '../../contexts/AuthContext/AuthAction';
+import avatar from '../../assets/images/avatar.jpg';
 
 const HeaderComponent = () => {
     const dropdownRef = useRef();
@@ -58,6 +59,7 @@ const HeaderComponent = () => {
                     >
                         <img
                             // src={userContext.user.avatar}
+                            src={avatar}
                             alt={user.name}
                             className="h-8 w-8 rounded-full"
                         />

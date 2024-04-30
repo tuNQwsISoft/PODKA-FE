@@ -1,30 +1,46 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, {
+    useCallback,
+    useContext,
+    useEffect,
+    useRef,
+    useState,
+} from 'react';
+import ReactDOM from 'react-dom';
 import {
+    IconClose,
     IconPause,
     IconPlay,
     IconPlayBack,
     IconPlayForward,
     IconVolume,
     IconWaves,
-} from '../../../icons';
-import { formatTime } from '../../../utils/DateTimeUtil';
+} from '../../icons';
+import { formatTime } from '../../utils/DateTimeUtil';
+import { PodcastContext } from '../../contexts/PodcastContext/PodcastContext';
+import {
+    ClosePodcast,
+    PodcastSetIsPlaying,
+} from '../../contexts/PodcastContext/PodcastAction';
+import './styles.css';
 
-const ActionGroupComponent = ({
-    isPlaying,
-    setIsPlaying = false,
-    currentAudio,
-    setCurrentAudio,
-    handleNext,
-    handlePrevious,
-    audioRef,
-}) => {
+const PodcastCollapseComponent = () => {
     const [volume, setVolume] = useState(60);
     const [muteVolume, setMuteVolume] = useState(false);
-    // const audioRef = useRef();
     const progressBarRef = useRef();
     const [timeProgress, setTimeProgress] = useState(0);
     const [duration, setDuration] = useState(0);
     const playAnimationRef = useRef();
+
+    const { isPlaying, audioRef, dispatch, currentAudio } =
+        useContext(PodcastContext);
+
+    const setIsPlaying = (isPlaying) => {
+        dispatch(PodcastSetIsPlaying(isPlaying));
+    };
+
+    const handleNext = () => {};
+
+    const handlePrevious = () => {};
 
     const repeat = useCallback(() => {
         playAnimationRef.current = requestAnimationFrame(repeat);
@@ -73,37 +89,38 @@ const ActionGroupComponent = ({
         handleNext();
     };
 
-    return (
-        <div className="action-group flex flex-col justify-center gap-4">
+    const handleClose = () => {
+        dispatch(ClosePodcast());
+    };
+
+    return ReactDOM.createPortal(
+        <div className="w-full absolute bottom-0 shadow-md">
             <audio
-                src={currentAudio.src}
+                src={currentAudio?.src}
                 ref={audioRef}
                 onLoadedMetadata={onLoadedMetadata}
                 onEnded={onEnded}
             />
-            <div className="progress flex items-center gap-2">
-                <span className="time current">{formatTime(timeProgress)}</span>
-                <input
-                    title="audio-timespan"
-                    type="range"
-                    defaultValue="0"
-                    ref={progressBarRef}
-                    onChange={handleProgressChange}
+            <button className="absolute right-4" onClick={handleClose}>
+                <IconClose width={'1.5rem'} height={'1.5rem'} fill="white" />
+            </button>
+            <div className="podcast-collapse grid gap-4 bg-[#171717]">
+                <img
+                    className="w-20 h-20"
+                    src={
+                        currentAudio?.thumbnailSrc ??
+                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz11dZWlpNuX0pRGqi74aAaKQmG0bw3wokBWsPCsVGBA&s'
+                    }
+                    alt="thumbnail"
                 />
-                <span className="time">{formatTime(duration)}</span>
-            </div>
-            <div className="controls-wrapper grid grid-cols-3 w-full">
-                <div className="flex justify-start">
-                    <button className="rounded-full bg-[#3D5CFF] px-4">
-                        <IconWaves
-                            width={'1.5rem'}
-                            height={'1.5rem'}
-                            color="white"
-                        />
-                    </button>
+                <div className="podcast-info flex flex-col gap-2 justify-center items-center columns-xs">
+                    <span>{currentAudio.title}</span>
+                    <a className="opacity-30" href="" title="creator">
+                        {currentAudio.creator}
+                    </a>
                 </div>
 
-                <div className="control flex justify-center gap-6">
+                <div className="control flex justify-center items-center gap-6">
                     <button onClick={handlePrevious}>
                         <IconPlayBack
                             width={'1.5rem'}
@@ -137,7 +154,20 @@ const ActionGroupComponent = ({
                         />
                     </button>
                 </div>
-                <div className="volume flex items-center justify-end gap-2">
+                <div className="progress flex items-center gap-2 flex-auto">
+                    <span className="time current">
+                        {formatTime(timeProgress)}
+                    </span>
+                    <input
+                        title="audio-timespan-collapse"
+                        type="range"
+                        defaultValue="0"
+                        ref={progressBarRef}
+                        onChange={handleProgressChange}
+                    />
+                    <span className="time">{formatTime(duration)}</span>
+                </div>
+                <div className="volume flex items-center justify-center gap-2 pr-4">
                     <button>
                         <IconVolume
                             width={'1.5rem'}
@@ -159,8 +189,9 @@ const ActionGroupComponent = ({
                     />
                 </div>
             </div>
-        </div>
+        </div>,
+        document.body
     );
 };
 
-export default ActionGroupComponent;
+export default PodcastCollapseComponent;

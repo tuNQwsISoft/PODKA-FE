@@ -6,13 +6,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AuthContextProvider from './contexts/AuthContext/AuthContext';
 import GlobalContextProvider from './contexts/Global/GlobalContext';
+import PodcastContextProvider from './contexts/PodcastContext/PodcastContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
         <GlobalContextProvider>
             <AuthContextProvider>
-                <App />
+                <PodcastContextProvider>
+                    <App />
+                </PodcastContextProvider>
             </AuthContextProvider>
         </GlobalContextProvider>
     </React.StrictMode>

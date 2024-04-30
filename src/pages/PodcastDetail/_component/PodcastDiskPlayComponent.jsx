@@ -9,7 +9,7 @@ const PodcastDiskPlayComponent = ({
         <div className="w-full h-full flex justify-center items-center">
             <div
                 className={`disk-wrapper h-full max-h-96 rounded-full ${isPlaying ? 'active' : ''}`}
-                onClick={() => setIsPlaying((prev) => !prev)}
+                onClick={() => setIsPlaying(!isPlaying)}
             >
                 <img className="w-96 h-96" src={thumbnailSrc} alt="thumbnail" />
             </div>

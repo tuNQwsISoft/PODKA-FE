@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Outlet } from 'react-router-dom';
 import PopupComponent from '../Popup/PopupComponent';
 import PopupFormComponent from '../Popup/PopupFormComponent';
+import PodcastCollapseComponent from '../PodcastCollapseComponent.jsx/PodcastCollapseComponent';
+import { PodcastContext } from '../../contexts/PodcastContext/PodcastContext';
 // import PopupComponent from "../Popup/PopupComponent";
 // import LoaderComponent from "../Loader/LoaderComponent";
 // import { parseNotNullNumber } from "../../utils/NumberUtils";
@@ -28,12 +30,16 @@ const BodyComponent = () => {
     //     }
     // }, [pageNumber, pageSizeNumber, setSearchParams]);
 
+    const { show, isPlaying } = useContext(PodcastContext);
+
     // if (pageNumber <= 0 || pageSizeNumber <= 0) return <LoaderComponent />;
     return (
         <main className="hidden-container flex-1 bg-quater-black p-2.5 shadow-2x2 flex overflow-scroll">
             <Outlet />
             <PopupComponent />
             <PopupFormComponent />
+            {/* {show ? <PodcastCollapseComponent /> : null} */}
+            {/* <PodcastCollapseComponent /> */}
         </main>
     );
 };

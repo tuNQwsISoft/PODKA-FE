@@ -16,15 +16,22 @@ export const audios = [
     {
         title: 'Trinix ft Rushawn – Its a beautiful day',
         src: beautiful,
-        author: 'Trinix ft Rushawn',
+        creator: 'Trinix ft Rushawn',
+        guests: ['tuNQws', 'khuongtai'],
+        likes: 16,
         nextAudioId: 1,
+        description: 'A short description',
         // thumbnail: trinix,
     },
     {
         title: 'Michael Jackson – We Are The World',
         src: world,
-        author: 'Michael Jackson',
+        creator: 'Michael Jackson',
+        guests: ['TriNgo', 'LeDuc'],
+        likes: 14,
         previousAudioId: 0,
+        description:
+            'A long description which is long and take much time to read \n Hit enter',
         // thumbnail: jackson,
     },
     // {
