@@ -4,6 +4,7 @@ import PopupComponent from '../Popup/PopupComponent';
 import PopupFormComponent from '../Popup/PopupFormComponent';
 import PodcastCollapseComponent from '../Podcast/PodcastCollapse/PodcastCollapseComponent';
 import { PodcastContext } from '../../contexts/PodcastContext/PodcastContext';
+import PodcastAudioComponent from '../Podcast/PodcastAudio/PodcastAudioComponent';
 // import PopupComponent from "../Popup/PopupComponent";
 // import LoaderComponent from "../Loader/LoaderComponent";
 // import { parseNotNullNumber } from "../../utils/NumberUtils";
@@ -38,7 +39,8 @@ const BodyComponent = () => {
             <Outlet />
             <PopupComponent />
             <PopupFormComponent />
-            {/* {show ? <PodcastCollapseComponent /> : null} */}
+            <PodcastAudioComponent />
+            {show ? <PodcastCollapseComponent /> : null}
             {/* <PodcastCollapseComponent /> */}
         </main>
     );

@@ -51,7 +51,7 @@ const PodcastContextProvider = ({ children }) => {
         // console.log(audioRef.current.duration);
         const seconds = audioRef.current.duration;
         setDuration(seconds);
-        progressBarRef.current.max = seconds;
+        if (progressBarRef.current) progressBarRef.current.max = seconds;
         // setIsPlaying(true);
     };
 

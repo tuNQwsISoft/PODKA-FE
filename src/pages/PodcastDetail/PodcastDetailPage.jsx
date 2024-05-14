@@ -11,6 +11,7 @@ import { PodcastContext } from '../../contexts/PodcastContext/PodcastContext';
 import {
     PodcastSetAudio,
     PodcastSetIsPlaying,
+    PodcastSetShow,
 } from '../../contexts/PodcastContext/PodcastAction';
 import PodcastService from '../../services/podcast.service';
 import { GlobalContext } from '../../contexts/Global/GlobalContext';
@@ -75,6 +76,10 @@ const PodcastDetailPage = () => {
             }
         };
         getPodcastDetail();
+        dispatch(PodcastSetShow(false));
+        return () => {
+            dispatch(PodcastSetShow(true));
+        };
     }, []);
 
     if (isFetching || !currentAudio) return 'Loading...';

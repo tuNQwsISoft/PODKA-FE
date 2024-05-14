@@ -69,7 +69,6 @@ const PopupFormComponent = () => {
         }
     };
 
-    console.log(title);
     if (!popup.show || popup.target !== popupTarget.createPodcastForm)
         return null;
     return ReactDOM.createPortal(

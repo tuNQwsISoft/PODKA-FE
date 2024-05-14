@@ -81,14 +81,18 @@ const ActionGroupComponent = ({
     //     handleNext();
     // };
 
+    useEffect(() => {
+        if (audioRef) onLoadedMetadata();
+    }, [audioRef, onLoadedMetadata]);
+
     return (
         <div className="action-group flex flex-col justify-center gap-4">
-            <audio
+            {/* <audio
                 src={currentAudio.podcast}
                 ref={audioRef}
                 onLoadedMetadata={onLoadedMetadata}
                 onEnded={onEnded}
-            />
+            /> */}
             <div className="progress flex items-center gap-2">
                 <span className="time current">{formatTime(timeProgress)}</span>
                 <input
