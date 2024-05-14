@@ -14,13 +14,13 @@ import {
     IconPlayForward,
     IconVolume,
     IconWaves,
-} from '../../icons';
-import { formatTime } from '../../utils/DateTimeUtil';
-import { PodcastContext } from '../../contexts/PodcastContext/PodcastContext';
+} from '../../../icons';
+import { formatTime } from '../../../utils/DateTimeUtil';
+import { PodcastContext } from '../../../contexts/PodcastContext/PodcastContext';
 import {
     ClosePodcast,
     PodcastSetIsPlaying,
-} from '../../contexts/PodcastContext/PodcastAction';
+} from '../../../contexts/PodcastContext/PodcastAction';
 import './styles.css';
 
 const PodcastCollapseComponent = () => {

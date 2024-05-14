@@ -10,7 +10,7 @@ export default class PodcastService {
                 body
             );
             const data = await response.data;
-            return data;
+            return data.data;
         } catch (error) {
             throw new Error(error);
         }
@@ -21,7 +21,19 @@ export default class PodcastService {
             const response =
                 await AxiosPrivateInstance.get(`/get-all-post-cast`);
             const data = await response.data;
-            return data;
+            return data.data;
+        } catch (error) {
+            throw new Error(error);
+        }
+    }
+
+    static async getPodcastDetail(podcast_id) {
+        try {
+            const response = await AxiosPrivateInstance.get(
+                `/get-post-cast/${podcast_id}`
+            );
+            const data = await response.data;
+            return data.data;
         } catch (error) {
             throw new Error(error);
         }

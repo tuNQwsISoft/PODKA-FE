@@ -11,7 +11,14 @@ const PodcastDiskPlayComponent = ({
                 className={`disk-wrapper h-full max-h-96 rounded-full ${isPlaying ? 'active' : ''}`}
                 onClick={() => setIsPlaying(!isPlaying)}
             >
-                <img className="w-96 h-96" src={thumbnailSrc} alt="thumbnail" />
+                <img
+                    className="w-96 h-96"
+                    src={
+                        thumbnailSrc ??
+                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz11dZWlpNuX0pRGqi74aAaKQmG0bw3wokBWsPCsVGBA&s'
+                    }
+                    alt="thumbnail"
+                />
             </div>
         </div>
     );

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Outlet } from 'react-router-dom';
 import PopupComponent from '../Popup/PopupComponent';
 import PopupFormComponent from '../Popup/PopupFormComponent';
-import PodcastCollapseComponent from '../PodcastCollapseComponent.jsx/PodcastCollapseComponent';
+import PodcastCollapseComponent from '../Podcast/PodcastCollapse/PodcastCollapseComponent';
 import { PodcastContext } from '../../contexts/PodcastContext/PodcastContext';
 // import PopupComponent from "../Popup/PopupComponent";
 // import LoaderComponent from "../Loader/LoaderComponent";

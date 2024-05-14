@@ -17,66 +17,74 @@ const ActionGroupComponent = ({
     handleNext,
     handlePrevious,
     audioRef,
+    onLoadedMetadata,
+    onEnded,
+    timeProgress,
+    progressBarRef,
+    handleProgressChange,
+    duration,
+    volume,
+    setVolume,
 }) => {
-    const [volume, setVolume] = useState(60);
-    const [muteVolume, setMuteVolume] = useState(false);
-    // const audioRef = useRef();
-    const progressBarRef = useRef();
-    const [timeProgress, setTimeProgress] = useState(0);
-    const [duration, setDuration] = useState(0);
-    const playAnimationRef = useRef();
+    // const [volume, setVolume] = useState(60);
+    // const [muteVolume, setMuteVolume] = useState(false);
+    // // const audioRef = useRef();
+    // const progressBarRef = useRef();
+    // const [timeProgress, setTimeProgress] = useState(0);
+    // const [duration, setDuration] = useState(0);
+    // const playAnimationRef = useRef();
 
-    const repeat = useCallback(() => {
-        playAnimationRef.current = requestAnimationFrame(repeat);
-        const currentTime = audioRef.current?.currentTime ?? null;
-        setTimeProgress(currentTime);
-        if (progressBarRef.current) {
-            progressBarRef.current.value = currentTime;
-            progressBarRef.current.style.setProperty(
-                '--range-progress',
-                `${(progressBarRef.current.value / duration) * 100}%`
-            );
-        }
-    }, [audioRef, duration, progressBarRef, setTimeProgress]);
+    // const repeat = useCallback(() => {
+    //     playAnimationRef.current = requestAnimationFrame(repeat);
+    //     const currentTime = audioRef.current?.currentTime ?? null;
+    //     setTimeProgress(currentTime);
+    //     if (progressBarRef.current) {
+    //         progressBarRef.current.value = currentTime;
+    //         progressBarRef.current.style.setProperty(
+    //             '--range-progress',
+    //             `${(progressBarRef.current.value / duration) * 100}%`
+    //         );
+    //     }
+    // }, [audioRef, duration, progressBarRef, setTimeProgress]);
 
-    useEffect(() => {
-        if (isPlaying) {
-            audioRef.current.play();
-        } else {
-            audioRef.current.pause();
-        }
-        playAnimationRef.current = requestAnimationFrame(repeat);
-    }, [isPlaying, audioRef, repeat]);
+    // useEffect(() => {
+    //     if (isPlaying) {
+    //         audioRef.current?.play();
+    //     } else {
+    //         audioRef.current?.pause();
+    //     }
+    //     playAnimationRef.current = requestAnimationFrame(repeat);
+    // }, [isPlaying, audioRef, repeat]);
 
-    useEffect(() => {
-        if (audioRef) {
-            audioRef.current.volume = volume / 100;
-        }
-    }, [volume, audioRef]);
+    // useEffect(() => {
+    //     if (audioRef) {
+    //         audioRef.current.volume = volume / 100;
+    //     }
+    // }, [volume, audioRef]);
 
-    const handleProgressChange = (e) => {
-        console.log(progressBarRef.current.value);
-        audioRef.current.currentTime = progressBarRef.current.value;
-        setTimeProgress(e.target.value);
-    };
+    // const handleProgressChange = (e) => {
+    //     console.log(progressBarRef.current.value);
+    //     audioRef.current.currentTime = progressBarRef.current.value;
+    //     setTimeProgress(e.target.value);
+    // };
 
-    const onLoadedMetadata = () => {
-        // console.log(audioRef.current.duration);
-        const seconds = audioRef.current.duration;
-        setDuration(seconds);
-        progressBarRef.current.max = seconds;
-        // setIsPlaying(true);
-    };
+    // const onLoadedMetadata = () => {
+    //     // console.log(audioRef.current.duration);
+    //     const seconds = audioRef.current.duration;
+    //     setDuration(seconds);
+    //     progressBarRef.current.max = seconds;
+    //     // setIsPlaying(true);
+    // };
 
-    const onEnded = () => {
-        setIsPlaying(false);
-        handleNext();
-    };
+    // const onEnded = () => {
+    //     setIsPlaying(false);
+    //     handleNext();
+    // };
 
     return (
         <div className="action-group flex flex-col justify-center gap-4">
             <audio
-                src={currentAudio.src}
+                src={currentAudio.podcast}
                 ref={audioRef}
                 onLoadedMetadata={onLoadedMetadata}
                 onEnded={onEnded}

@@ -7,25 +7,36 @@ import PodcastService from '../../services/podcast.service';
 
 const HomePage = () => {
     const { fetchAPI } = useContext(GlobalContext);
-    const [podcastList, setPodcastList] = useState([]);
+    const [sections, setSections] = useState([]);
 
     useEffect(() => {
-        const fetchPodcastList = async () => {
+        const fetchSections = async () => {
             const result = await fetchAPI(() =>
                 PodcastService.getListPodcast()
             );
-            console.log(result);
-            setPodcastList(result);
+            if (result) {
+                setSections(result.sections);
+            }
         };
-        fetchPodcastList();
+        fetchSections();
     }, []);
 
-    return (
-        <div className="flex justify-center w-full px-32">
-            <SectionComponent title={'Section 1'} podcastList={podcastList} />
-            {/* <SectionComponent title={'Section 2'} podcastList={podcastList} /> */}
-        </div>
-    );
+    if (sections)
+        return (
+            <div className="flex justify-center w-full px-32">
+                {sections?.map((section, index) => {
+                    return (
+                        <SectionComponent
+                            key={index}
+                            title={section.name}
+                            podcastList={section.podcasts}
+                        />
+                    );
+                })}
+
+                {/* <SectionComponent title={'Section 2'} podcastList={podcastList} /> */}
+            </div>
+        );
 };
 
 export default HomePage;

@@ -8,12 +8,30 @@ import avatar from '../../assets/images/avatar.jpg';
 import groupAvatar from '../../assets/images/group-avatar.jpg';
 import { IconThumbUp } from '../../icons';
 import { PodcastContext } from '../../contexts/PodcastContext/PodcastContext';
-import { PodcastSetIsPlaying } from '../../contexts/PodcastContext/PodcastAction';
+import {
+    PodcastSetAudio,
+    PodcastSetIsPlaying,
+} from '../../contexts/PodcastContext/PodcastAction';
+import PodcastService from '../../services/podcast.service';
+import { GlobalContext } from '../../contexts/Global/GlobalContext';
 
 const PodcastDetailPage = () => {
     const { id } = useParams();
-    const { isPlaying, currentAudio, audioRef, dispatch } =
-        useContext(PodcastContext);
+    const {
+        isPlaying,
+        currentAudio,
+        dispatch,
+        audioRef,
+        progressBarRef,
+        onLoadedMetadata,
+        onEnded,
+        timeProgress,
+        handleProgressChange,
+        duration,
+        volume,
+        setVolume,
+    } = useContext(PodcastContext);
+    const { fetchAPI, isFetching } = useContext(GlobalContext);
     // const [currentAudio, setCurrentAudio] = useState(audios[0]);
     // const [isPlaying, setIsPlaying] = useState(false);
     const [isLiked, setIsLiked] = useState(false);
@@ -47,14 +65,26 @@ const PodcastDetailPage = () => {
         dispatch(PodcastSetIsPlaying(isPlaying));
     };
 
-    useEffect(() => {}, []);
+    useEffect(() => {
+        const getPodcastDetail = async () => {
+            const result = await fetchAPI(() =>
+                PodcastService.getPodcastDetail(id)
+            );
+            if (result) {
+                dispatch(PodcastSetAudio(result));
+            }
+        };
+        getPodcastDetail();
+    }, []);
 
+    if (isFetching || !currentAudio) return 'Loading...';
     return (
         <div className="p-1 w-full h-full gap-2 flex">
             <div className="container-gray flex flex-col w-full h-full p-4">
                 <PodcastDiskPlayComponent
                     isPlaying={isPlaying}
                     setIsPlaying={setIsPlaying}
+                    thumbnailSrc={currentAudio.backgroundImage}
                 />
                 <ActionGroupComponent
                     currentAudio={currentAudio}
@@ -64,6 +94,14 @@ const PodcastDetailPage = () => {
                     handleNext={handleNext}
                     handlePrevious={handlePrevious}
                     audioRef={audioRef}
+                    progressBarRef={progressBarRef}
+                    onLoadedMetadata={onLoadedMetadata}
+                    onEnded={onEnded}
+                    timeProgress={timeProgress}
+                    handleProgressChange={handleProgressChange}
+                    duration={duration}
+                    volume={volume}
+                    setVolume={setVolume}
                 />
             </div>
             <div className="container-gray w-full h-full flex flex-col gap-2 p-4 px-8 items-center">

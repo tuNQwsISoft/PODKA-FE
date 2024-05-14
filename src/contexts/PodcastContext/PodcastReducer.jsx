@@ -19,6 +19,11 @@ export default function PodcastReducer(state, action) {
                 isPlaying: false,
                 show: false,
             };
+        case PodcastActionType.setCurrentAudio:
+            return {
+                ...state,
+                currentAudio: action.payload,
+            };
         default:
             return state;
     }

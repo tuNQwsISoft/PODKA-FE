@@ -15,7 +15,8 @@ import world from './We_Are_The_World.mp3';
 export const audios = [
     {
         title: 'Trinix ft Rushawn – Its a beautiful day',
-        src: beautiful,
+        // src: beautiful,
+        src: 'https://res.cloudinary.com/dij4phznu/video/upload/v1715568702/podka/audios/a_beautiful_day_d7kgvb.mp3',
         creator: 'Trinix ft Rushawn',
         guests: ['tuNQws', 'khuongtai'],
         likes: 16,
