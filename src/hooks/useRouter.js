@@ -9,6 +9,7 @@ import LoginPage from '../pages/Login/LoginPage';
 import SearchPage from '../pages/Search/SearchPage';
 import MyChannelPage from '../pages/MyChannel/MyChannelPage';
 import SettingPage from '../pages/Setting/SettingPage';
+import PodcastDetailPage from '../pages/PodcastDetail/PodcastDetailPage';
 
 const useRouter = () => {
     const { user } = useContext(AuthContext);
@@ -40,6 +41,10 @@ const useRouter = () => {
                 {
                     path: PathList.settingPage,
                     element: <SettingPage />,
+                },
+                {
+                    path: PathList.podcastDetailPage,
+                    element: <PodcastDetailPage />,
                 },
             ],
         },

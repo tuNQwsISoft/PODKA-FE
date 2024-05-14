@@ -1,0 +1,16 @@
+input[title='audio-timespan-collapse'] {
+    height: 0.25rem;
+    border-radius: 1rem;
+    width: 100%;
+    --range-progress: 0;
+    background: linear-gradient(
+        to right,
+        #ffffff var(--range-progress),
+        #5a5a5a var(--range-progress)
+    ) !important;
+}
+
+.podcast-collapse {
+    grid-template-rows: auto;
+    grid-template-columns: 7% 9% 15% 1fr 12%;
+}

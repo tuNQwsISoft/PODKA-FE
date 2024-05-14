@@ -31,6 +31,7 @@ export const PathList = {
     searchPage: '/search',
     settingPage: '/setting',
     myChannelPage: '/my-channel',
+    podcastDetailPage: '/podcast/:id',
 };
 
 export const Menu = [

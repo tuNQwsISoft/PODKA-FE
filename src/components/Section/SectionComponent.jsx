@@ -9,7 +9,7 @@ const SectionComponent = ({ title, podcastList }) => {
             <div className="h-0.5 w-full bg-slate-400" />
 
             <div className="podcast-list flex flex-col gap-x-20 overflow-x-auto whitespace-nowrap w-full h-80 flex-wrap">
-                {podcastList.map((podcastItem) => {
+                {podcastList?.map((podcastItem) => {
                     return <PodcastItemComponent podcastItem={podcastItem} />;
                 })}
             </div>
