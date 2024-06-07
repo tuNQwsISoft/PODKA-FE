@@ -8,6 +8,9 @@ import {
     IconWaves,
 } from '../../../icons';
 import { formatTime } from '../../../utils/DateTimeUtil';
+import SelectSingleComponent from '../../../components/Select/SelectSingleComponent';
+import PodcastService from '../../../services/podcast.service';
+import SelectPodkaComponent from './SelectPodkaComponent';
 
 const ActionGroupComponent = ({
     isPlaying,
@@ -25,6 +28,7 @@ const ActionGroupComponent = ({
     duration,
     volume,
     setVolume,
+    setBackgroundSound,
 }) => {
     // const [volume, setVolume] = useState(60);
     // const [muteVolume, setMuteVolume] = useState(false);
@@ -81,9 +85,21 @@ const ActionGroupComponent = ({
     //     handleNext();
     // };
 
+    const [soundList, setSoundList] = useState([]);
+
     useEffect(() => {
-        if (audioRef) onLoadedMetadata();
-    }, [audioRef, onLoadedMetadata]);
+        if (audioRef && progressBarRef) onLoadedMetadata();
+    }, [audioRef, onLoadedMetadata, progressBarRef]);
+
+    useEffect(() => {
+        const getBackgroundSoundList = async () => {
+            const result = await PodcastService.getListBackgroundSound();
+            if (result) setSoundList(result.backgroundSounds);
+        };
+        getBackgroundSoundList();
+    }, []);
+
+    console.log(soundList);
 
     return (
         <div className="action-group flex flex-col justify-center gap-4">
@@ -106,13 +122,22 @@ const ActionGroupComponent = ({
             </div>
             <div className="controls-wrapper grid grid-cols-3 w-full">
                 <div className="flex justify-start">
-                    <button className="rounded-full bg-[#3D5CFF] px-4">
+                    {/* <button className="rounded-full bg-[#3D5CFF] px-4">
                         <IconWaves
                             width={'1.5rem'}
                             height={'1.5rem'}
                             color="white"
                         />
-                    </button>
+                    </button> */}
+                    <SelectPodkaComponent
+                        defaultValue="test"
+                        options={soundList}
+                        renderKey="name"
+                        valueKey="url"
+                        onSelect={(option) => setBackgroundSound(option.url)}
+                        setBackgroundSound={setBackgroundSound}
+                        // nullable
+                    />
                 </div>
 
                 <div className="control flex justify-center gap-6">

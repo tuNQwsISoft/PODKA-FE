@@ -22,12 +22,14 @@ export const PodcastContext = createContext(INIT_STATE);
 
 const PodcastContextProvider = ({ children }) => {
     const audioRef = useRef();
+    const backgroundSoundRef = useRef();
     const progressBarRef = useRef();
     const [state, dispatch] = useReducer(PodcastReducer, INIT_STATE);
     const [volume, setVolume] = useState(60);
     const [timeProgress, setTimeProgress] = useState(0);
     const [duration, setDuration] = useState(0);
     const playAnimationRef = useRef();
+    const [backgroundSound, setBackgroundSound] = useState(null);
 
     const repeat = useCallback(() => {
         playAnimationRef.current = requestAnimationFrame(repeat);
@@ -55,11 +57,11 @@ const PodcastContextProvider = ({ children }) => {
         // setIsPlaying(true);
     };
 
-    // useEffect(() => {
-    //     if (audioRef) {
-    //         audioRef.current.volume = volume / 100;
-    //     }
-    // }, [volume, audioRef]);
+    useEffect(() => {
+        if (audioRef.current) {
+            audioRef.current.volume = volume / 100;
+        }
+    }, [volume, audioRef]);
 
     const onEnded = () => {
         dispatch(PodcastSetIsPlaying(false));
@@ -68,8 +70,10 @@ const PodcastContextProvider = ({ children }) => {
     useEffect(() => {
         if (state.isPlaying) {
             audioRef.current?.play();
+            backgroundSoundRef.current?.play();
         } else {
             audioRef.current?.pause();
+            backgroundSoundRef.current?.pause();
         }
         playAnimationRef.current = requestAnimationFrame(repeat);
     }, [state.isPlaying, audioRef, repeat]);
@@ -90,6 +94,9 @@ const PodcastContextProvider = ({ children }) => {
                 duration,
                 volume,
                 setVolume,
+                backgroundSoundRef,
+                backgroundSound,
+                setBackgroundSound,
             }}
         >
             {children}

@@ -9,11 +9,9 @@ const PodcastAudioComponent = () => {
         onLoadedMetadata,
         onEnded,
         progressBarRef,
+        backgroundSoundRef,
+        backgroundSound,
     } = useContext(PodcastContext);
-
-    useEffect(() => {
-        onLoadedMetadata();
-    }, [currentAudio, onLoadedMetadata]);
 
     return ReactDOM.createPortal(
         <>
@@ -23,8 +21,12 @@ const PodcastAudioComponent = () => {
                 // onLoadedMetadata={onLoadedMetadata}
                 onEnded={onEnded}
             />
+            <audio
+                src={backgroundSound}
+                ref={backgroundSoundRef}
+                onEnded={onEnded}
+            />
             <div className="hidden">
-                <span className="time current"></span>
                 <input
                     title="audio-timespan"
                     type="range"

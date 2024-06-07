@@ -38,4 +38,16 @@ export default class PodcastService {
             throw new Error(error);
         }
     }
+
+    static async getListBackgroundSound() {
+        try {
+            const response = await AxiosPrivateInstance.get(
+                `/get-all-background-sound-public`
+            );
+            const data = await response.data;
+            return data.data;
+        } catch (error) {
+            throw new Error(error);
+        }
+    }
 }

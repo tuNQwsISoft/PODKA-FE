@@ -31,6 +31,7 @@ const PodcastDetailPage = () => {
         duration,
         volume,
         setVolume,
+        setBackgroundSound,
     } = useContext(PodcastContext);
     const { fetchAPI, isFetching } = useContext(GlobalContext);
     // const [currentAudio, setCurrentAudio] = useState(audios[0]);
@@ -107,6 +108,7 @@ const PodcastDetailPage = () => {
                     duration={duration}
                     volume={volume}
                     setVolume={setVolume}
+                    setBackgroundSound={setBackgroundSound}
                 />
             </div>
             <div className="container-gray w-full h-full flex flex-col gap-2 p-4 px-8 items-center">

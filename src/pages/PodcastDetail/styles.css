@@ -68,3 +68,8 @@ input[title='audio-timespan'] {
     background: #ffffff;
     width: var(--range-progress);
 } */
+
+.select-single-toggle,
+.select-multiple-toggle {
+    height: 100%;
+}
