@@ -99,8 +99,6 @@ const ActionGroupComponent = ({
         getBackgroundSoundList();
     }, []);
 
-    console.log(soundList);
-
     return (
         <div className="action-group flex flex-col justify-center gap-4">
             {/* <audio

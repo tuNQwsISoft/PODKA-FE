@@ -31,6 +31,14 @@ const PodcastContextProvider = ({ children }) => {
     const playAnimationRef = useRef();
     const [backgroundSound, setBackgroundSound] = useState(null);
 
+    useEffect(() => {
+        if (state.isPlaying) {
+            dispatch(PodcastSetIsPlaying(false));
+            audioRef.current.currentTime = 0;
+            setTimeProgress(0);
+        }
+    }, [backgroundSound]);
+
     const repeat = useCallback(() => {
         playAnimationRef.current = requestAnimationFrame(repeat);
         const currentTime = audioRef.current?.currentTime ?? null;
